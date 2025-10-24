@@ -1,1 +1,5 @@
 .git
+
+# Hide formatter config
+.prettierrc
+.stylua.toml
