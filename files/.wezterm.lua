@@ -38,6 +38,23 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
   return string.format(" %d: %s ", tab.tab_index, process_name)
 end)
 
+-- config.status_update_interval = 1000
+wezterm.on("update-right-status", function(window, pane)
+  local time = wezterm.strftime(" %H:%M:%S ")
+  local date = wezterm.strftime(" %d.%m.%Y")
+
+  window:set_right_status(wezterm.format({
+    { Foreground = { AnsiColor = "Teal" } },
+    { Text = wezterm.nerdfonts.fa_clock_o },
+    "ResetAttributes",
+    { Text = time },
+    { Foreground = { AnsiColor = "Teal" } },
+    { Text = wezterm.nerdfonts.fa_calendar },
+    "ResetAttributes",
+    { Text = date },
+  }))
+end)
+
 -- OPACITY
 -- https://wezterm.org/config/appearance.html#window-background-opacity
 config.window_background_opacity = 0.75
