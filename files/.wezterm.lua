@@ -19,12 +19,13 @@ local tab_renames = {
 
 -- TAB BAR
 -- https://wezterm.org/config/appearance.html#tab-bar-appearance-colors
--- config.enable_tab_bar = false
--- config.hide_tab_bar_if_only_one_tab = true
+-- config.enable_tab_bar = true
+-- config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.tab_max_width = 16
 
+-- Set tab title to process name
 wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
   local process_name = util.basename(tab.active_pane.foreground_process_name)
 
