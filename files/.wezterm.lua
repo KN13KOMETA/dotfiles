@@ -3,6 +3,26 @@ local config = wezterm.config_builder();
 
 
 
+-- UTILS
+local util = {}
+
+util.basename = function(s)
+  return string.gsub(s, '(.*[/\\])(.*)', '%2')
+end
+
+
+
+-- VARIABLES
+local tab_renames = {
+  sh = "-",
+  dash = "-",
+  bash = "-",
+  fish = "-",
+  zsh = "-",
+}
+
+
+
 -- TAB BAR
 -- https://wezterm.org/config/appearance.html#tab-bar-appearance-colors
 -- config.enable_tab_bar = false
@@ -10,6 +30,21 @@ local config = wezterm.config_builder();
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.tab_max_width = 16
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
+  local process_name = util.basename(tab.active_pane.foreground_process_name);
+
+  if (tab_renames[process_name]) then
+    process_name = tab_renames[process_name];
+  end
+
+  return string.format(
+
+    " %d: %s ",
+    tab.tab_index,
+    process_name
+  )
+end)
 
 
 
