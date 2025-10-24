@@ -10,6 +10,7 @@ end
 
 -- VARIABLES
 local tab_renames = {
+  [""] = "-",
   sh = "-",
   dash = "-",
   bash = "-",
@@ -27,7 +28,8 @@ config.tab_max_width = 16
 
 -- Set tab title to process name
 wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
-  local process_name = util.basename(tab.active_pane.foreground_process_name)
+  local process_name = tab.active_pane.foreground_process_name
+  process_name = process_name and util.basename(process_name) or ""
 
   if tab_renames[process_name] then
     process_name = tab_renames[process_name]
