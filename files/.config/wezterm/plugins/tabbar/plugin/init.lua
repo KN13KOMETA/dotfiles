@@ -36,20 +36,25 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
   return string.format(" %d: %s ", tab.tab_index, process_name)
 end)
 
+-- Set status bar
 wezterm.on("update-status", function(window, pane)
-  local time = wezterm.strftime(" %H:%M:%S ")
-  local date = wezterm.strftime(" %d.%m.%Y")
-  -- TODO: battery
-  window:set_right_status(wezterm.format({
-    { Foreground = { AnsiColor = "Teal" } },
-    { Text = wezterm.nerdfonts.fa_clock_o },
-    "ResetAttributes",
-    { Text = time },
-    { Foreground = { AnsiColor = "Teal" } },
-    { Text = wezterm.nerdfonts.fa_calendar },
-    "ResetAttributes",
-    { Text = date },
-  }))
+  -- Set right status
+  do
+    local time = wezterm.strftime(" %H:%M:%S ")
+    local date = wezterm.strftime(" %d.%m.%Y")
+
+    -- TODO: battery
+    window:set_right_status(wezterm.format({
+      { Foreground = { AnsiColor = "Teal" } },
+      { Text = wezterm.nerdfonts.fa_clock_o },
+      "ResetAttributes",
+      { Text = time },
+      { Foreground = { AnsiColor = "Teal" } },
+      { Text = wezterm.nerdfonts.fa_calendar },
+      "ResetAttributes",
+      { Text = date },
+    }))
+  end
 end)
 
 return M
