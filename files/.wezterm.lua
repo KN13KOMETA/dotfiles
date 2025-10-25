@@ -42,7 +42,7 @@ end)
 wezterm.on("update-right-status", function(window, pane)
   local time = wezterm.strftime(" %H:%M:%S ")
   local date = wezterm.strftime(" %d.%m.%Y")
-
+  -- TODO: battery
   window:set_right_status(wezterm.format({
     { Foreground = { AnsiColor = "Teal" } },
     { Text = wezterm.nerdfonts.fa_clock_o },
@@ -68,6 +68,6 @@ config.font = wezterm.font("0xProto Nerd Font Mono")
 config.font_size = 11.2
 
 -- https://wezterm.org/config/lua/config/window_decorations.html
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 
 return config
