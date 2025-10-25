@@ -10,6 +10,8 @@ M.apply_to_config = function(config, _)
   config.tab_bar_at_bottom = true
   config.use_fancy_tab_bar = false
   config.tab_max_width = 16
+
+  -- config.status_update_interval = 1000
 end
 
 -- VARIABLES
@@ -34,8 +36,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
   return string.format(" %d: %s ", tab.tab_index, process_name)
 end)
 
--- config.status_update_interval = 1000
-wezterm.on("update-right-status", function(window, pane)
+wezterm.on("update-status", function(window, pane)
   local time = wezterm.strftime(" %H:%M:%S ")
   local date = wezterm.strftime(" %d.%m.%Y")
   -- TODO: battery
