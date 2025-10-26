@@ -41,7 +41,7 @@ wezterm.on("update-status", function(window, pane)
   -- Set right status
   do
     local time = wezterm.strftime(" %H:%M:%S ")
-    local date = wezterm.strftime(" %d.%m.%Y")
+    local date = wezterm.strftime(" %d.%m.%Y ")
 
     -- TODO: battery
     window:set_right_status(wezterm.format({
