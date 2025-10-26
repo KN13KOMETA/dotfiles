@@ -23,4 +23,10 @@ local tabbar_plugin = require("plugins/tabbar/plugin")
 
 tabbar_plugin.apply_to_config(config, {})
 
+-- Maximize window on startup
+wezterm.on("gui-startup", function()
+  local tab, pane, window = wezterm.mux.spawn_window({})
+  window:gui_window():maximize()
+end)
+
 return config
