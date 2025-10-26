@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local util = require("util")
 
-local M = {} -- wezterm.config_builder();
+local M = {}
 
 M.apply_to_config = function(config, _)
   -- https://wezterm.org/config/appearance.html#tab-bar-appearance-colors
@@ -55,7 +55,6 @@ wezterm.on("update-status", function(window, pane)
   -- Set right status
   do
     local time = wezterm.strftime(" %H:%M:%S ")
-    local date = wezterm.strftime(" %d.%m.%Y ")
 
     -- TODO: battery
     window:set_right_status(wezterm.format({
@@ -63,10 +62,6 @@ wezterm.on("update-status", function(window, pane)
       { Text = wezterm.nerdfonts.fa_clock_o },
       "ResetAttributes",
       { Text = time },
-      { Foreground = { AnsiColor = "Teal" } },
-      { Text = wezterm.nerdfonts.fa_calendar },
-      "ResetAttributes",
-      { Text = date },
     }))
   end
 end)
