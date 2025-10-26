@@ -38,6 +38,20 @@ end)
 
 -- Set status bar
 wezterm.on("update-status", function(window, pane)
+  -- Set left status
+  do
+    local text = window:active_key_table()
+
+    if text then
+      text = "TBL: " .. text
+    elseif window:leader_is_active() then
+      text = "LDR"
+    else
+      text = window:active_workspace()
+    end
+
+    window:set_left_status(string.format(" %s ", text))
+  end
   -- Set right status
   do
     local time = wezterm.strftime(" %H:%M:%S ")
