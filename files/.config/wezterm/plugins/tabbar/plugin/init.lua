@@ -55,9 +55,28 @@ wezterm.on("update-status", function(window, pane)
   -- Set right status
   do
     local time = wezterm.strftime(" %H:%M:%S ")
+    local battery = {
+      charge = wezterm.battery_info().state_of_charge,
+      color = "Green",
+      text = "",
+    }
 
-    -- TODO: battery
-    window:set_right_status(wezterm.format({
+    if battery.charge ~= nil then
+      if battery.charge < 0.25 then
+        battery.color = "Red"
+      elseif battery.charge < 0.75 then
+        battery.color = "Yellow"
+      end
+
+      battery.text = wezterm.format({
+        { Foreground = { AnsiColor = battery.color } },
+        { Text = wezterm.nerdfonts.fa_bolt },
+        "ResetAttributes",
+        { Text = string.format(" %d%%  ", battery.charge * 100) },
+      })
+    end
+
+    window:set_right_status(battery.text .. wezterm.format({
       { Foreground = { AnsiColor = "Teal" } },
       { Text = wezterm.nerdfonts.fa_clock_o },
       "ResetAttributes",
