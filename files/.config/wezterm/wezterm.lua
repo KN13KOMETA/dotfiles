@@ -16,8 +16,8 @@ config.font_size = 11.2
 -- https://wezterm.org/config/lua/config/window_decorations.html
 config.window_decorations = "RESIZE"
 
-local tabbar = require("plugins/tabbar/plugin")
+local tabbar_plugin = require("plugins/tabbar/plugin")
 
-tabbar.apply_to_config(config, {})
+tabbar_plugin.apply_to_config(config, {})
 
 return config
