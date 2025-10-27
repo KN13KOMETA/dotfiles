@@ -29,11 +29,6 @@ M.apply_to_config = function(config, _)
     { key = key.workspace, mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
     { key = key.tab,       mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
     { key = key.launcher,  mods = "LEADER", action = wezterm.action.ShowLauncher },
-    {
-      key = "a",
-      mods = "LEADER",
-      action = wezterm.action.AttachDomain("unix"),
-    },
   }
   config.key_tables = {
     prev = {
