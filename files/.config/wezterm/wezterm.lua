@@ -74,14 +74,16 @@ config.window_decorations = "RESIZE"
 -- https://wezterm.org/config/lua/config/default_workspace.html
 config.default_workspace = "main"
 
-local tabbar_plugin = require("plugins/tabbar/plugin")
-
-tabbar_plugin.apply_to_config(config, {})
-
 -- Maximize window on startup
 wezterm.on("gui-startup", function()
   local tab, pane, window = wezterm.mux.spawn_window({})
   window:gui_window():maximize()
 end)
+
+local plugin = {
+  tabbar = require("plugins/tabbar/plugin"),
+}
+
+plugin.tabbar.apply_to_config(config, {})
 
 return config
