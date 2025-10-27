@@ -31,8 +31,16 @@ local key = {
   },
 }
 
-M.apply_to_config = function(config, _)
-  local timeout = 3333
+M.apply_to_config = function(config, opts)
+  if type(opts) ~= "table" then
+    opts = {
+      leader = {},
+      key = {},
+    }
+  end
+
+  leader = util.table_merge(leader, opts.leader or {})
+  key = util.table_merge(key, opts.key or {})
 
   config.leader = { key = leader.key, mods = leader.mods, timeout_milliseconds = leader.timeout }
   config.keys = {
