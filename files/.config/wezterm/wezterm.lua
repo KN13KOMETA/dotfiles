@@ -18,11 +18,11 @@ local direction_key = {
 
 config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = timeout }
 config.keys = {
-  { key = "[", mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
-  { key = "]", mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
+  { key = "[",           mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
+  { key = "]",           mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
   { key = workspace_key, mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
-  { key = tab_key, mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
-  { key = launcher_key, mods = "LEADER", action = wezterm.action.ShowLauncher },
+  { key = tab_key,       mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
+  { key = launcher_key,  mods = "LEADER", action = wezterm.action.ShowLauncher },
 }
 config.key_tables = {
   prev = {
@@ -33,8 +33,8 @@ config.key_tables = {
   },
   tab = {
     { key = launcher_key, action = wezterm.action.ShowLauncherArgs({ flags = "TABS" }) },
-    { key = new_key, action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-    { key = close_key, action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+    { key = new_key,      action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+    { key = close_key,    action = wezterm.action.CloseCurrentTab({ confirm = true }) },
   },
   workspace = {
     { key = launcher_key, action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }) },
