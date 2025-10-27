@@ -25,8 +25,12 @@ config.keys = {
   { key = launcher_key, mods = "LEADER", action = wezterm.action.ShowLauncher },
 }
 config.key_tables = {
-  prev = {},
-  next = {},
+  prev = {
+    { key = tab_key, action = wezterm.action.ActivateTabRelative(-1) },
+  },
+  next = {
+    { key = tab_key, action = wezterm.action.ActivateTabRelative(1) },
+  },
   tab = {
     { key = launcher_key, action = wezterm.action.ShowLauncherArgs({ flags = "TABS" }) },
     { key = new_key, action = wezterm.action.SpawnTab("CurrentPaneDomain") },
