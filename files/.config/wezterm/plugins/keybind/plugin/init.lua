@@ -43,25 +43,18 @@ M.apply_to_config = function(config, opts)
   key = util.table_merge(key, opts.key or {})
 
   config.leader = { key = leader.key, mods = leader.mods, timeout_milliseconds = leader.timeout }
+
   config.keys = {
-    { key = key.prev,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
-    { key = key.next,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
+    -- Target
+    { key = key.launcher,  mods = "LEADER", action = wezterm.action.ShowLauncher },
     { key = key.workspace, mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
     { key = key.tab,       mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
-    { key = key.launcher,  mods = "LEADER", action = wezterm.action.ShowLauncher },
+    -- Special
+    { key = key.prev,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
+    { key = key.next,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
   }
   config.key_tables = {
-    prev = {
-      { key = key.tab, action = wezterm.action.ActivateTabRelative(-1) },
-    },
-    next = {
-      { key = key.tab, action = wezterm.action.ActivateTabRelative(1) },
-    },
-    tab = {
-      { key = key.launcher, action = wezterm.action.ShowLauncherArgs({ flags = "TABS" }) },
-      { key = key.new,      action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-      { key = key.close,    action = wezterm.action.CloseCurrentTab({ confirm = true }) },
-    },
+    -- Target
     workspace = {
       { key = key.launcher, action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }) },
       {
@@ -79,6 +72,18 @@ M.apply_to_config = function(config, opts)
           end),
         }),
       },
+    },
+    tab = {
+      { key = key.launcher, action = wezterm.action.ShowLauncherArgs({ flags = "TABS" }) },
+      { key = key.new,      action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+      { key = key.close,    action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+    },
+    -- Special
+    prev = {
+      { key = key.tab, action = wezterm.action.ActivateTabRelative(-1) },
+    },
+    next = {
+      { key = key.tab, action = wezterm.action.ActivateTabRelative(1) },
     },
   }
 end
