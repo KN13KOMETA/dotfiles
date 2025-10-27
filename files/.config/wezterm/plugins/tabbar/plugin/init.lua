@@ -26,14 +26,18 @@ local tab_renames = {
 
 -- Set tab title to process name
 wezterm.on("format-tab-title", function(tab, tabs, panes, cfg, hover, max_width)
-  local process_name = tab.active_pane.foreground_process_name
-  process_name = process_name and util.basename(process_name) or ""
+  local title = tab.tab_title
 
-  if tab_renames[process_name] then
-    process_name = tab_renames[process_name]
+  if title == "" then
+    title = tab.active_pane.foreground_process_name
+    title = title and util.basename(title) or ""
+
+    if tab_renames[title] then
+      title = tab_renames[title]
+    end
   end
 
-  return string.format(" %d: %s ", tab.tab_index, process_name)
+  return string.format(" %d: %s ", tab.tab_index, title)
 end)
 
 -- Set status bar
