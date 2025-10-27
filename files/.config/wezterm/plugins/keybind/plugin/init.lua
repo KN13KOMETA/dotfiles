@@ -83,6 +83,20 @@ M.apply_to_config = function(config, opts)
       { key = key.launcher, action = wezterm.action.ShowLauncherArgs({ flags = "TABS" }) },
       { key = key.new,      action = wezterm.action.SpawnTab("CurrentPaneDomain") },
       { key = key.close,    action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+      {
+        key = key.rename,
+        action = wezterm.action.PromptInputLine({
+          description = wezterm.format({
+            { Attribute = { Intensity = "Bold" } },
+            { Text = "Renaming Tab:" },
+          }),
+          action = wezterm.action_callback(function(window, pane, line)
+            if line then
+              window:active_tab():set_title(line)
+            end
+          end),
+        }),
+      },
     },
     -- Special
     prev = {
