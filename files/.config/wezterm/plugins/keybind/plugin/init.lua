@@ -4,13 +4,18 @@ local util = require("util")
 local M = {}
 
 local key = {
+  -- Target keys
   launcher = "l",
   window = "w",
   workspace = "o",
   tab = "t",
+  -- Action keys
   new = "n",
   close = "c",
   rename = "r",
+  -- Special keys
+  prev = "[",
+  next = "]",
   direction = {
     up = "k",
     down = "j",
@@ -24,8 +29,8 @@ M.apply_to_config = function(config, _)
 
   config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = timeout }
   config.keys = {
-    { key = "[",           mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
-    { key = "]",           mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
+    { key = key.prev,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
+    { key = key.next,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
     { key = key.workspace, mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
     { key = key.tab,       mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
     { key = key.launcher,  mods = "LEADER", action = wezterm.action.ShowLauncher },
