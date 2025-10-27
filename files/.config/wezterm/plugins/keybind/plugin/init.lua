@@ -16,10 +16,13 @@ local key = {
   window = "w",
   workspace = "o",
   tab = "t",
+  pane = "p",
   -- Action keys
   new = "n",
   close = "c",
   rename = "r",
+  split_horizontal = "\\",
+  split_vertical = "|",
   -- Special keys
   prev = "[",
   next = "]",
@@ -51,6 +54,7 @@ M.apply_to_config = function(config, opts)
     { key = key.launcher,   mods = "LEADER",       action = wezterm.action.ShowLauncher },
     { key = key.workspace,  mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
     { key = key.tab,        mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
+    { key = key.pane,       mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "pane" }) },
     -- Special
     { key = key.prev,       mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
     { key = key.next,       mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "next" }) },
@@ -65,6 +69,8 @@ M.apply_to_config = function(config, opts)
     workspace = {
       { key = key.launcher, action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }) },
       { key = key.new,      action = wezterm.action.SwitchToWorkspace({}) },
+      -- TODO: currently there's no way to close workspace sadly
+      -- https://github.com/wezterm/wezterm/issues/3658
       {
         key = key.rename,
         action = wezterm.action.PromptInputLine({
@@ -97,6 +103,14 @@ M.apply_to_config = function(config, opts)
             end
           end),
         }),
+      },
+    },
+    pane = {
+      { key = key.split_horizontal, action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+      {
+        key = key.split_vertical,
+        mods = "SHIFT",
+        action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
       },
     },
     -- Special
