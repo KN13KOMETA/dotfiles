@@ -23,6 +23,8 @@ local key = {
   -- Special keys
   prev = "[",
   next = "]",
+  move_left = "<",
+  move_right = ">",
   direction = {
     up = "k",
     down = "j",
@@ -46,13 +48,18 @@ M.apply_to_config = function(config, opts)
 
   config.keys = {
     -- Target
-    { key = key.launcher,  mods = "LEADER", action = wezterm.action.ShowLauncher },
-    { key = key.workspace, mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
-    { key = key.tab,       mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
+    { key = key.launcher,   mods = "LEADER",       action = wezterm.action.ShowLauncher },
+    { key = key.workspace,  mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
+    { key = key.tab,        mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
     -- Special
-    { key = key.prev,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
-    { key = key.next,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
+    { key = key.prev,       mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
+    { key = key.next,       mods = "LEADER",       action = wezterm.action.ActivateKeyTable({ name = "next" }) },
+    -- TODO: shift is theoretically isnt required, but since key is defined as "<" and ">" shift is required to press these
+    -- TODO: but if i want to change it to something that doesnt require shift, is still must press shift
+    { key = key.move_left,  mods = "LEADER|SHIFT", action = wezterm.action.ActivateKeyTable({ name = "move_left" }) },
+    { key = key.move_right, mods = "LEADER|SHIFT", action = wezterm.action.ActivateKeyTable({ name = "move_right" }) },
   }
+
   config.key_tables = {
     -- Target
     workspace = {
@@ -84,6 +91,12 @@ M.apply_to_config = function(config, opts)
     },
     next = {
       { key = key.tab, action = wezterm.action.ActivateTabRelative(1) },
+    },
+    move_left = {
+      { key = key.tab, action = wezterm.action.MoveTabRelative(-1) },
+    },
+    move_right = {
+      { key = key.tab, action = wezterm.action.MoveTabRelative(1) },
     },
   }
 end
