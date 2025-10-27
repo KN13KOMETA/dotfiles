@@ -4,6 +4,10 @@ local util = require("util")
 local M = {}
 
 local key = {
+  -- Leader key
+  leader = "Space",
+  leader_mods = "CTRL",
+  leader_timeout = 3333,
   -- Target keys
   launcher = "l",
   window = "w",
@@ -27,7 +31,7 @@ local key = {
 M.apply_to_config = function(config, _)
   local timeout = 3333
 
-  config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = timeout }
+  config.leader = { key = key.leader, mods = key.leader_mods, timeout_milliseconds = key.leader_timeout }
   config.keys = {
     { key = key.prev,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
     { key = key.next,      mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
