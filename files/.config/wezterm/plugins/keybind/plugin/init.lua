@@ -64,6 +64,7 @@ M.apply_to_config = function(config, opts)
     -- Target
     workspace = {
       { key = key.launcher, action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }) },
+      { key = key.new,      action = wezterm.action.SwitchToWorkspace({}) },
       {
         key = key.rename,
         action = wezterm.action.PromptInputLine({
