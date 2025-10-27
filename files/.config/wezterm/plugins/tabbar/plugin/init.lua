@@ -47,9 +47,9 @@ wezterm.on("update-status", function(window, pane)
     local text = window:active_key_table()
 
     if text then
-      text = "TBL: " .. text
+      text = wezterm.nerdfonts.fa_compress .. " " .. text
     elseif window:leader_is_active() then
-      text = "LDR"
+      text = wezterm.nerdfonts.fa_compress .. " leader"
     else
       text = window:active_workspace()
     end
