@@ -3,29 +3,32 @@ local util = require("util")
 
 local M = {}
 
-M.apply_to_config = function(config, _)
-  local timeout = 3333
-
-  local launcher_key = "l"
-  local workspace_key = "w"
-  local tab_key = "t"
-  local new_key = "n"
-  local close_key = "c"
-  local rename_key = "r"
-  local direction_key = {
+local key = {
+  launcher = "l",
+  window = "w",
+  workspace = "o",
+  tab = "t",
+  new = "n",
+  close = "c",
+  rename = "r",
+  direction = {
     up = "k",
     down = "j",
     left = "h",
     right = "l",
-  }
+  },
+}
+
+M.apply_to_config = function(config, _)
+  local timeout = 3333
 
   config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = timeout }
   config.keys = {
     { key = "[",           mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "prev" }) },
     { key = "]",           mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "next" }) },
-    { key = workspace_key, mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
-    { key = tab_key,       mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
-    { key = launcher_key,  mods = "LEADER", action = wezterm.action.ShowLauncher },
+    { key = key.workspace, mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "workspace" }) },
+    { key = key.tab,       mods = "LEADER", action = wezterm.action.ActivateKeyTable({ name = "tab" }) },
+    { key = key.launcher,  mods = "LEADER", action = wezterm.action.ShowLauncher },
     {
       key = "a",
       mods = "LEADER",
@@ -34,20 +37,20 @@ M.apply_to_config = function(config, _)
   }
   config.key_tables = {
     prev = {
-      { key = tab_key, action = wezterm.action.ActivateTabRelative(-1) },
+      { key = key.tab, action = wezterm.action.ActivateTabRelative(-1) },
     },
     next = {
-      { key = tab_key, action = wezterm.action.ActivateTabRelative(1) },
+      { key = key.tab, action = wezterm.action.ActivateTabRelative(1) },
     },
     tab = {
-      { key = launcher_key, action = wezterm.action.ShowLauncherArgs({ flags = "TABS" }) },
-      { key = new_key,      action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-      { key = close_key,    action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+      { key = key.launcher, action = wezterm.action.ShowLauncherArgs({ flags = "TABS" }) },
+      { key = key.new,      action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+      { key = key.close,    action = wezterm.action.CloseCurrentTab({ confirm = true }) },
     },
     workspace = {
-      { key = launcher_key, action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }) },
+      { key = key.launcher, action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }) },
       {
-        key = rename_key,
+        key = key.rename,
         action = wezterm.action.PromptInputLine({
           description = wezterm.format({
             { Attribute = { Intensity = "Bold" } },
