@@ -69,8 +69,7 @@ M.apply_to_config = function(config, opts)
         action = wezterm.action.PromptInputLine({
           description = wezterm.format({
             { Attribute = { Intensity = "Bold" } },
-            { Foreground = { AnsiColor = "Fuchsia" } },
-            { Text = "Renaming Tab Title...:" },
+            { Text = "Renaming Workspace:" },
           }),
           action = wezterm.action_callback(function(window, pane, line)
             if line then
