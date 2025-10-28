@@ -60,7 +60,7 @@ wezterm.on("update-status", function(window, pane)
   do
     local time = wezterm.strftime(" %H:%M:%S ")
     local battery = {
-      charge = wezterm.battery_info().state_of_charge,
+      charge = wezterm.battery_info()[1].state_of_charge,
       color = "Green",
       text = "",
     }
@@ -76,7 +76,7 @@ wezterm.on("update-status", function(window, pane)
         { Foreground = { AnsiColor = battery.color } },
         { Text = wezterm.nerdfonts.fa_bolt },
         "ResetAttributes",
-        { Text = string.format(" %d%%  ", battery.charge * 100) },
+        { Text = string.format(" %d%%  ", math.floor(battery.charge * 100)) },
       })
     end
 
