@@ -49,7 +49,7 @@ M.table_pretty = function(t)
         if depth > MAX_RECURSIVE_DEPTH then
           value = "..."
         else
-          value = pretty(value)
+          value = pretty(value, depth + 1)
         end
       elseif type(value) == "string" then
         value = value
