@@ -74,4 +74,25 @@ M.table_pretty = function(t)
   return pretty(t, 0)
 end
 
+M.key_tostring = function(key)
+  local key_text = ""
+  local act = key.action
+
+  if type(act) == "table" then
+    act = M.table_pretty(act)
+  end
+
+  if type(act) ~= "string" then
+    act = "unknown"
+  end
+
+  if key.mods then
+    key_text = string.format("%s, %s = %s", key.mods, key.key, act)
+  else
+    key_text = string.format("%s = %s", key.key, act)
+  end
+
+  return key_text
+end
+
 return M
