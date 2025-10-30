@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-
+local util = require("util")
 
 -- OPACITY
 -- https://wezterm.org/config/appearance.html#window-background-opacity
@@ -29,9 +29,48 @@ end)
 local plugin = {
   keybind = require("plugins/keybind/plugin"),
   tabbar = require("plugins/tabbar/plugin"),
+  helpscreen = require("plugins/helpscreen/plugin")
 }
 
 plugin.keybind.apply_to_config(config, {})
 plugin.tabbar.apply_to_config(config, {})
+
+-- Init helpscreen plugin, keep at at bottom after every key and key_tables defined
+do
+  local keys_help = {}
+  local simple_key = nil
+
+  if type(config.leader) == "table" then
+    simple_key = util.key_simplifier(config.leader)
+    table.insert(keys_help, string.format("%s = LEADER", simple_key.key))
+  end
+
+  for _, key in ipairs(config.keys) do
+    simple_key = util.key_simplifier(key)
+    table.insert(keys_help, string.format("%s = %s", simple_key.key, simple_key.action))
+  end
+
+  for key_table_name, key_table in pairs(config.key_tables) do
+    table.insert(keys_help, string.format("> KEY TABLE: %s", key_table_name))
+    for _, key in ipairs(key_table) do
+      simple_key = util.key_simplifier(key)
+      table.insert(keys_help, string.format("%s = %s", simple_key.key, simple_key.action))
+    end
+  end
+
+  plugin.helpscreen.apply_to_config(config, {
+    mods = "LEADER",
+    text = wezterm.format({
+      { Attribute = { Intensity = "Bold" } },
+      { Foreground = { AnsiColor = "Purple" } },
+      { Text = "> HELP SCREEN (WEZTERM KOMETA CONFIG)\n" },
+      "ResetAttributes",
+      { Text = "\n> KEYS\n" },
+      { Text = table.concat(keys_help, "\n") },
+      "ResetAttributes",
+      { Text = "\n\nPress enter to close..." }
+    })
+  })
+end
 
 return config
