@@ -32,6 +32,7 @@ local plugin = {
   helpscreen = require("plugins/helpscreen/plugin")
 }
 
+-- TODO: panes and copy mode
 plugin.keybind.apply_to_config(config, {})
 plugin.tabbar.apply_to_config(config, {})
 
@@ -72,5 +73,9 @@ do
     })
   })
 end
+
+wezterm.on("window-resized", function(window, pane)
+  wezterm.reload_configuration();
+end)
 
 return config
