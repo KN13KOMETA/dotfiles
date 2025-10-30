@@ -50,7 +50,7 @@ M.table_length = function(t)
   return l
 end
 
-M.table_pretty = function(t)
+M.table_pretty = function(table)
   local function pretty(t, depth)
     local parts = {}
     local parts_count = 0
@@ -89,7 +89,7 @@ M.table_pretty = function(t)
     end
   end
 
-  return pretty(t, 0)
+  return pretty(table, 0)
 end
 
 M.key_simplifier = function(key)
