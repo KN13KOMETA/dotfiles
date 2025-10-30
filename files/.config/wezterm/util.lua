@@ -32,4 +32,46 @@ M.table_length = function(t)
   return l
 end
 
+M.table_pretty = function(t)
+  local function pretty(t, depth)
+    local parts = {}
+    local parts_count = 0
+
+    for key, value in pairs(t) do
+      local isTable = false
+
+      parts_count = parts_count + 1
+
+      if type(key) ~= "string" then key = tostring(key) end
+
+      if type(value) == "table" then
+        isTable = true
+        if depth > MAX_RECURSIVE_DEPTH then
+          value = "..."
+        else
+          value = pretty(value)
+        end
+      elseif type(value) == "string" then
+        value = value
+      else
+        value = tostring(value)
+      end
+
+      if isTable then
+        table.insert(parts, string.format("%s.%s", key, value))
+      else
+        table.insert(parts, string.format("%s = %s", key, value))
+      end
+    end
+
+    if parts_count == 1 then
+      return table.concat(parts, ",\n")
+    else
+      return string.format("{%s}", table.concat(parts, ", "))
+    end
+  end
+
+  return pretty(t, 0)
+end
+
 return M
