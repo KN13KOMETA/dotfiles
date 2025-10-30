@@ -50,7 +50,7 @@ M.table_length = function(t)
   return l
 end
 
-M.table_pretty = function(table)
+M.table_pretty = function(tbl)
   local function pretty(t, depth)
     local parts = {}
     local parts_count = 0
@@ -69,9 +69,7 @@ M.table_pretty = function(table)
         else
           value = pretty(value, depth + 1)
         end
-      elseif type(value) == "string" then
-        value = value
-      else
+      elseif type(value) ~= "string" then
         value = tostring(value)
       end
 
@@ -89,7 +87,7 @@ M.table_pretty = function(table)
     end
   end
 
-  return pretty(table, 0)
+  return pretty(tbl, 0)
 end
 
 M.key_simplifier = function(key)
