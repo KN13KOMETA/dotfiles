@@ -76,7 +76,7 @@ end
 
 M.key_simplifier = function(key)
   local simple_key = {
-    key = "",
+    key = key.key,
     action = key.action
   }
 
