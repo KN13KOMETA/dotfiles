@@ -74,25 +74,25 @@ M.table_pretty = function(t)
   return pretty(t, 0)
 end
 
-M.key_tostring = function(key)
-  local key_text = ""
-  local act = key.action
+M.key_simplifier = function(key)
+  local simple_key = {
+    key = "",
+    action = key.action
+  }
 
-  if type(act) == "table" then
-    act = M.table_pretty(act)
+  if type(simple_key.action) == "table" then
+    simple_key.action = M.table_pretty(simple_key.action)
   end
 
-  if type(act) ~= "string" then
-    act = "unknown"
+  if type(simple_key.action) ~= "string" then
+    simple_key.action = "unknown"
   end
 
   if key.mods then
-    key_text = string.format("%s, %s = %s", key.mods, key.key, act)
-  else
-    key_text = string.format("%s = %s", key.key, act)
+    simple_key.key = string.format("%s, %s", key.mods, key.key)
   end
 
-  return key_text
+  return simple_key
 end
 
 return M
