@@ -26,4 +26,10 @@ M.table_merge = function(t1, t2)
   return merge(t1, t2, 0)
 end
 
+M.table_length = function(t)
+  local l = 0
+  for _ in ipairs(t) do l = l + 1 end
+  return l
+end
+
 return M
