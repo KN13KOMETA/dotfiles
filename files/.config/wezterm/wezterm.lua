@@ -50,7 +50,7 @@ do
     table.insert(keys_help, string.format("%s = %s", simple_key.key, simple_key.action))
   end
 
-  for key_table_name, key_table in pairs(config.key_tables) do
+  for key_table_name, key_table in util.abc_pairs(config.key_tables) do
     table.insert(keys_help, string.format("> KEY TABLE: %s", key_table_name))
     for _, key in ipairs(key_table) do
       simple_key = util.key_simplifier(key)

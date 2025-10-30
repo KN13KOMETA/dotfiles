@@ -6,6 +6,24 @@ M.basename = function(s)
   return string.gsub(s, "(.*[/\\])(.*)", "%2")
 end
 
+M.abc_pairs = function(t, sort_f)
+  local a = {}
+
+  for n in pairs(t) do table.insert(a, n) end
+
+  table.sort(a, sort_f)
+  local i = 0
+  local iter = function()
+    i = i + 1
+    if a[i] == nil then
+      return nil
+    else
+      return a[i], t[a[i]]
+    end
+  end
+  return iter
+end
+
 M.table_merge = function(t1, t2)
   local function merge(dst, src, depth)
     if depth > MAX_RECURSIVE_DEPTH then
