@@ -60,10 +60,17 @@ wezterm.on("update-status", function(window, pane)
   do
     local time = wezterm.strftime(" %H:%M:%S ")
     local battery = {
-      charge = wezterm.battery_info()[1].state_of_charge,
+      charge = nil,
       color = "Green",
       text = "",
     }
+
+    do
+      local battery_info = wezterm.battery_info();
+      if (battery_info[1]) then
+        battery.charge = battery_info[1].state_of_charge
+      end
+    end
 
     if battery.charge ~= nil then
       if battery.charge < 0.25 then
