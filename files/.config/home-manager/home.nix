@@ -37,6 +37,7 @@
   ];
 
   programs = {
+    zsh = { enable = true; };
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
