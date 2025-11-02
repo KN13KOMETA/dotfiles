@@ -37,6 +37,11 @@
   ];
 
   programs = {
+    oh-my-posh = {
+      enable = true;
+      enableZshIntegration = true;
+      configFile = "${config.xdg.configHome}/oh-my-posh/custom.toml";
+    };
     zoxide = {
       enable = true;
       enableZshIntegration = true;
