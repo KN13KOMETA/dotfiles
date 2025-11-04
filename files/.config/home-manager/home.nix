@@ -36,6 +36,12 @@
     # '')
   ];
 
+  home.shellAliases = {
+    f = "fastfetch";
+    ls = "ls --color";
+    c = "clear";
+  };
+
   programs = {
     zsh = { enable = true; };
     oh-my-posh = {
