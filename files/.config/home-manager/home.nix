@@ -19,7 +19,6 @@
   # environment.
   home.packages = [
     pkgs.fastfetch
-    pkgs.zoxide
     pkgs.neovim
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
