@@ -61,6 +61,8 @@
         findNoDups = true;
       };
 
+      # TODO: wait till zinit appears in home manager
+      # TODO: mayber switch bindkeys
       initContent = ''
         # Default zinit location
         ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
@@ -97,6 +99,14 @@
 
         # Remove highlight of pasted text
         zle_highlight+=(paste:none)
+
+        # Keybindings
+        bindkey -e
+        bindkey '^[[A' history-search-backward
+        bindkey '^p' history-search-backward
+        bindkey '^[[B' history-search-forward
+        bindkey '^n' history-search-forward
+        bindkey '^[w' kill-region
       '';
     };
     oh-my-posh = {
