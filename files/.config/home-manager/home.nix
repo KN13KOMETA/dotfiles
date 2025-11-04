@@ -35,6 +35,8 @@
     # '')
   ];
 
+  home.sessionVariables = { EDITOR = "nvim"; };
+
   home.shellAliases = {
     f = "fastfetch";
     ls = "ls --color";
