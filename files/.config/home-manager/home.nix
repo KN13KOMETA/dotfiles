@@ -29,7 +29,6 @@
 
     # Languages
     pkgs.nodejs
-    pkgs.bun
     pkgs.zig
     pkgs.rustc
 
