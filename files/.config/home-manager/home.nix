@@ -48,6 +48,19 @@
     zsh = {
       enable = true;
 
+      history = {
+        size = 6666;
+
+        append = true;
+        share = true;
+        ignoreSpace = true;
+
+        ignoreAllDups = true;
+        ignoreDups = true;
+        saveNoDups = true;
+        findNoDups = true;
+      };
+
       initContent = ''
         # Default zinit location
         ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
