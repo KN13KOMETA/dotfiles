@@ -65,6 +65,7 @@
     f = "fastfetch";
     ls = "ls --color";
     c = "clear";
+    n = "nvim";
   };
 
   programs = {
