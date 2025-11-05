@@ -143,7 +143,7 @@
       "type": "terminalsize"
     },
     {
-      "key": "│ {#magenta}󰲎 termwp   {#keys}│",
+      "key": "│ {#magenta}󰸉 termwp   {#keys}│",
       "type": "command",
       "text": "grep '\"source\"' ~/.config/fastfetch/config.jsonc | sed 's/.*\\/\\([^/]*\\)\".*/\\1/'"
     },
