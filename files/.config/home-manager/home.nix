@@ -12,35 +12,36 @@
     stateVersion = "25.05";
   };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # Based
-    pkgs.git
-    pkgs.wget
-    pkgs.curl
-    pkgs.gawk
+    git
+    wget
+    curl
+    gawk
 
     # Editor
-    pkgs.neovim
+    neovim
+
+    # Terminal
+    wezterm
 
     # Languages
-    pkgs.nodejs
-    pkgs.zig
-    pkgs.rustc
+    nodejs
+    zig
+    rustc
 
     # Building
-    pkgs.cmake
-    pkgs.gnumake
-    pkgs.ninja
+    cmake
+    gnumake
+    ninja
 
     # QOL
-    pkgs.lazygit
-    pkgs.tree
+    lazygit
+    tree
 
     # Other
-    pkgs.fastfetch
-    pkgs.zinit
+    fastfetch
+    zinit
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
