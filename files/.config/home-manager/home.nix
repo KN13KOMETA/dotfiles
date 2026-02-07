@@ -95,6 +95,7 @@
   home.sessionVariables = { EDITOR = "nvim"; };
 
   home.shellAliases = {
+    hm = "home-manager";
     f = "fastfetch";
     ls = "ls --color";
     c = "clear";
