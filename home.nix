@@ -102,6 +102,12 @@ in { config, pkgs, ... }: {
     '';
   };
 
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    configFile = ./files/.config/oh-my-posh/custom.toml;
+  };
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
