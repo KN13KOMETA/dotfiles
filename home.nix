@@ -37,4 +37,25 @@ in { config, pkgs, ... }: {
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Setup shell
+  programs.zsh = {
+    enable = true;
+
+    history = {
+      # Limits memory
+      size = 6666;
+      # Limits file
+      save = 6666;
+
+      append = true;
+      share = true;
+      ignoreSpace = true;
+
+      ignoreAllDups = true;
+      ignoreDups = true;
+      saveNoDups = true;
+      findNoDups = true;
+    };
+  };
 }
