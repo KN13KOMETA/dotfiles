@@ -87,6 +87,18 @@ in { config, pkgs, ... }: {
       }
     ];
 
+    initContent = ''
+      # Lowercase completion work on both lowercase and uppercase
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      # Color completion same as "ls --color"
+      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+
+      # Shows directory content in preview when using cd (zoxide)
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+      zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+    '';
+  };
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
