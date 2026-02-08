@@ -64,6 +64,27 @@ in { config, pkgs, ... }: {
     # Ignores insecure files and dirs
     completionInit = "autoload -U compinit && compinit -i";
 
+    plugins = [
+      {
+        name = "zsh-completions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-completions";
+          rev = "989d0445450b8e79b3cde2da3b7f4bb54934354c";
+          sha256 = "0v1djgrqfn01b40xfr1c0i9h1aca8l32m8ns0dsxqhvjyzy0m0f4";
+        };
+      }
+      {
+        name = "fzf-tab";
+        src = pkgs.fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "747c15de85a38748b28c29ac65616137dbb4c8b6";
+          sha256 = "0y3l8cinmy7k6jc6qmpnwp5h1m0fix2x2vn8ifmadji3d6klbaw1";
+        };
+      }
+    ];
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
