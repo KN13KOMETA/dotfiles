@@ -27,13 +27,15 @@ in { config, pkgs, ... }: {
 
   home.shellAliases = { hm = "home-manager"; };
 
-  home.packages = with pkgs;
-    [
-      (writeShellScriptBin "hello" ''
-        echo "Be Quiet, ${config.home.username}"
-        echo "KOMETA is here"
-      '')
-    ];
+  home.packages = with pkgs; [
+    (writeShellScriptBin "hello" ''
+      echo "Be Quiet, ${config.home.username}"
+      echo "KOMETA is here"
+      echo ""
+      echo "If completions is not working run \"rm -f ~/.zcompdump; compinit\""
+    '')
+    nix-prefetch-git
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
