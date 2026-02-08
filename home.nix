@@ -58,6 +58,9 @@ in { config, pkgs, ... }: {
       findNoDups = true;
     };
 
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
