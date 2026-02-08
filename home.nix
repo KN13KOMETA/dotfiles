@@ -57,5 +57,15 @@ in { config, pkgs, ... }: {
       saveNoDups = true;
       findNoDups = true;
     };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [ "--cmd cd" ];
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }
