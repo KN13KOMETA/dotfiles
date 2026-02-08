@@ -44,6 +44,9 @@ in { config, pkgs, ... }: {
   programs.zsh = {
     enable = true;
 
+    # NOTE: Uncomment when debugging
+    # zprof.enable = true;
+
     history = {
       # Limits memory
       size = 6666;
