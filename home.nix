@@ -61,6 +61,9 @@ in { config, pkgs, ... }: {
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
 
+    # Ignores insecure files and dirs
+    completionInit = "autoload -U compinit && compinit -i";
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
