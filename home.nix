@@ -29,7 +29,10 @@ in { config, pkgs, ... }: {
 
   home.packages = with pkgs;
     [
-      hello
+      (writeShellScriptBin "hello" ''
+        echo "Be Quiet, ${config.home.username}"
+        echo "KOMETA is here"
+      '')
     ];
 
   # Let Home Manager install and manage itself.
