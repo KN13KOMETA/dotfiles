@@ -6,6 +6,9 @@ enable_cursor_positioning = true
 async = true
 version = 4
 
+[var]
+  PromptIcon = "❯"
+
 [[blocks]]
   type = "rprompt"
 
@@ -62,7 +65,7 @@ version = 4
     ]
     background = "transparent"
 
-    template = "❯"
+    template = "{{ .Var.PromptIcon }}"
 
 [transient_prompt]
   foreground_templates = [
@@ -71,10 +74,10 @@ version = 4
   ]
   background = "transparent"
 
-  template = "❯ "
+  template = "{{ .Var.PromptIcon }} "
 
 [secondary_prompt]
   foreground = "magenta"
   background = "transparent"
 
-  template = "❯❯ "
+  template = "{{ .Var.PromptIcon }}{{ .Var.PromptIcon }} "
