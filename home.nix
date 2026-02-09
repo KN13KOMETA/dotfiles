@@ -53,10 +53,7 @@ in { config, pkgs, ... }: {
   programs.home-manager.enable = true;
 
   # SHELL BEGIN
-  programs.zsh = import ./programs/zsh {
-    inherit config;
-    inherit pkgs;
-  };
+  programs.zsh = import ./programs/zsh { inherit config pkgs; };
 
   programs.oh-my-posh = {
     enable = true;
