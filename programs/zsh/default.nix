@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   enable = true;
 
   # NOTE: Uncomment when debugging
@@ -57,7 +58,9 @@
   ];
 
   # TODO: Check if this works
-  sessionVariables = { ZVM_SYSTEM_CLIPBOARD_ENABLED = true; };
+  sessionVariables = {
+    ZVM_SYSTEM_CLIPBOARD_ENABLED = true;
+  };
 
   initContent = ''
     # Lowercase completion work on both lowercase and uppercase

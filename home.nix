@@ -1,5 +1,8 @@
-let user = "nixtest";
-in { config, pkgs, ... }: {
+let
+  user = "nixtest";
+in
+{ config, pkgs, ... }:
+{
   home = {
     username = user;
     homeDirectory = "/home/" + user;
@@ -23,7 +26,9 @@ in { config, pkgs, ... }: {
     # '';
   };
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   home.shellAliases = {
     abc = "echo {a..z}";
