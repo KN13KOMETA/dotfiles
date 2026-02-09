@@ -25,7 +25,19 @@ in { config, pkgs, ... }: {
 
   home.sessionVariables = { EDITOR = "nvim"; };
 
-  home.shellAliases = { hm = "home-manager"; };
+  home.shellAliases = {
+    abc = "echo {a..z}";
+    abc-ru = "echo {а..я}";
+
+    c = "clear";
+
+    hm = "home-manager";
+
+    ls = "ls --color";
+    ll = "ls -alF";
+    la = "ls -A";
+    l = "ls -CF";
+  };
 
   home.packages = with pkgs; [
     (writeShellScriptBin "hello" ''
