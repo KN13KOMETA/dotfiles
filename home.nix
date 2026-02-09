@@ -40,7 +40,7 @@ in { config, pkgs, ... }: {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Setup shell
+  # SHELL BEGIN
   programs.zsh = import ./programs/zsh/zsh.nix {
     inherit config;
     inherit pkgs;
@@ -62,4 +62,5 @@ in { config, pkgs, ... }: {
     enable = true;
     enableZshIntegration = true;
   };
+  # SHELL END
 }
