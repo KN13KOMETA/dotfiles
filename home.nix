@@ -55,7 +55,34 @@ in
       echo ""
       echo "If completions is not working run \"rm -f ~/.zcompdump; compinit\""
     '')
+
     nix-prefetch-git
+
+    git
+    curl
+    gawk
+
+    nerd-fonts.intone-mono
+
+    # Editor
+    neovim
+
+    # Terminal
+    wezterm
+
+    # Languages
+    nodejs
+    zig
+    rustc
+
+    # Building
+    cmake
+    gnumake
+    ninja
+
+    # QOL
+    lazygit
+    tree
   ];
 
   # Let Home Manager install and manage itself.
