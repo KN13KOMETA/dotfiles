@@ -42,6 +42,8 @@ in
     ll = "ls -alF";
     la = "ls -A";
     l = "ls -CF";
+
+    f = "fastfetch";
   };
 
   home.packages = with pkgs; [
@@ -77,4 +79,6 @@ in
     enableZshIntegration = true;
   };
   # SHELL END
+
+  programs.fastfetch = import ./programs/fastfetch { inherit config pkgs; };
 }
