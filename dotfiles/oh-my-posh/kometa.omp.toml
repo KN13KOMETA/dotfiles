@@ -6,6 +6,17 @@ enable_cursor_positioning = true
 async = true
 version = 4
 
+[palette]
+  main = "#FF66FF"
+  secondary = "#6666FF"
+  neutral = "#EEEEEE"
+
+  good = "#66FF66"
+  bad = "#FF6666"
+  notice = "#FFFF66"
+
+  none = "transparent"
+
 [var]
   PromptIcon = "❯"
 
@@ -15,8 +26,8 @@ version = 4
   [[blocks.segments]]
     type = "executiontime"
     style = "plain"
-    foreground = "yellow"
-    background = "transparent"
+    foreground = "p:notice"
+    background = "p:none"
 
     [blocks.segments.options]
       threshold = 1000
@@ -30,8 +41,8 @@ version = 4
   [[blocks.segments]]
     type = "path"
     style = "plain"
-    foreground = "blue"
-    background = "transparent"
+    foreground = "p:secondary"
+    background = "p:none"
 
     template = "{{ .Path }}"
 
@@ -41,10 +52,10 @@ version = 4
   [[blocks.segments]]
     type = "git"
     style = "plain"
-    foreground = "white"
-    background = "transparent"
+    foreground = "p:neutral"
+    background = "p:none"
 
-    template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <red>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+    template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:notice>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
 
     [blocks.segments.options]
       fetch_status = true
@@ -60,24 +71,24 @@ version = 4
     type = "text"
     style = "plain"
     foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}magenta{{end}}",
+      "{{if gt .Code 0}}p:bad{{end}}",
+      "{{if eq .Code 0}}p:main{{end}}",
     ]
-    background = "transparent"
+    background = "p:none"
 
     template = "{{ .Var.PromptIcon }}"
 
 [transient_prompt]
   foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}magenta{{end}}",
+    "{{if gt .Code 0}}p:bad{{end}}",
+    "{{if eq .Code 0}}p:main{{end}}",
   ]
-  background = "transparent"
+  background = "p:none"
 
   template = "{{ .Var.PromptIcon }} "
 
 [secondary_prompt]
-  foreground = "magenta"
-  background = "transparent"
+  foreground = "p:main"
+  background = "p:none"
 
   template = "{{ .Var.PromptIcon }}{{ .Var.PromptIcon }} "
