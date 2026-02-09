@@ -55,7 +55,11 @@ version = 4
     foreground = "p:neutral"
     background = "p:none"
 
-    template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:notice>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+    template = """ \
+{{ .HEAD }}\
+{{ if or (.Working.Changed) (.Staging.Changed) }}<p:notice>*</>{{ end }} \
+<p:bad>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>\
+"""
 
     [blocks.segments.options]
       fetch_status = true
