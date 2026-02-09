@@ -45,7 +45,19 @@
         sha256 = "0y3l8cinmy7k6jc6qmpnwp5h1m0fix2x2vn8ifmadji3d6klbaw1";
       };
     }
+    {
+      name = "zsh-vi-mode";
+      src = pkgs.fetchFromGitHub {
+        owner = "jeffreytse";
+        repo = "zsh-vi-mode";
+        rev = "08bd1c04520418faee2b9d1afbc410ee1a59a8f1";
+        sha256 = "0kkm91a37yxbgxcbzg8fcr8pn380myg7zf913wwfnm2mbh4lgmjr";
+      };
+    }
   ];
+
+  # TODO: Check if this works
+  sessionVariables = { ZVM_SYSTEM_CLIPBOARD_ENABLED = true; };
 
   initContent = ''
     # Lowercase completion work on both lowercase and uppercase
