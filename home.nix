@@ -64,6 +64,8 @@ in
   # SHELL BEGIN
   programs.zsh = import ./programs/zsh { inherit config pkgs; };
 
+  # TODO: Different palette support
+  # TODO: Write exit codes
   programs.oh-my-posh = {
     enable = true;
     enableZshIntegration = true;
@@ -81,6 +83,8 @@ in
     enableZshIntegration = true;
   };
   # SHELL END
+
+  # TODO: Take a look at zellij, ghostty and micro
 
   programs.fastfetch = import ./programs/fastfetch { inherit config pkgs; };
 }
