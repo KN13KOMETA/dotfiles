@@ -41,7 +41,7 @@ in { config, pkgs, ... }: {
   programs.home-manager.enable = true;
 
   # SHELL BEGIN
-  programs.zsh = import ./programs/zsh/zsh.nix {
+  programs.zsh = import ./programs/zsh {
     inherit config;
     inherit pkgs;
   };
