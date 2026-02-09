@@ -43,6 +43,8 @@ in
     la = "ls -A";
     l = "ls -CF";
 
+    n = "nvim";
+
     f = "fastfetch";
   };
 
