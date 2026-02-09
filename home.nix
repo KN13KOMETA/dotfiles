@@ -105,7 +105,7 @@ in { config, pkgs, ... }: {
   programs.oh-my-posh = {
     enable = true;
     enableZshIntegration = true;
-    configFile = ./files/.config/oh-my-posh/custom.toml;
+    configFile = ./dotfiles/oh-my-posh/kometa.omp.toml;
   };
 
   programs.zoxide = {
