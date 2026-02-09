@@ -15,8 +15,9 @@ version = 4
     type = "path"
     style = "plain"
     foreground = "blue"
-    background = 'transparent'
-    template = '{{ .Path }}'
+    background = "transparent"
+
+    template = "{{ .Path }}"
 
     [blocks.segments.options]
       style = "full"
