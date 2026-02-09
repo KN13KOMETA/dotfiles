@@ -34,3 +34,16 @@ version = 4
       fetch_status = true
       fetch_push_status = true
       branch_icon = ""
+
+[[blocks]]
+  type = "rprompt"
+
+  [[blocks.segments]]
+    type = "executiontime"
+    style = "plain"
+    foreground = "yellow"
+    background = "transparent"
+
+    [blocks.segments.options]
+      threshold = 1000
+      style = "roundrock"
