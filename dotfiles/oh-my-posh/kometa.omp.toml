@@ -1,0 +1,22 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+
+final_space = true
+shell_integration = true
+enable_cursor_positioning = true
+async = true
+version = 4
+
+[[blocks]]
+  type = "prompt"
+  newline = true
+  alignment = "left"
+
+  [[blocks.segments]]
+    type = "path"
+    style = "plain"
+    foreground = "blue"
+    background = 'transparent'
+    template = '{{ .Path }}'
+
+    [blocks.segments.options]
+      style = "full"
