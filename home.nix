@@ -37,11 +37,13 @@ in
     c = "clear";
 
     hm = "home-manager";
+    hms = "hm switch";
 
     ls = "ls --color";
     ll = "ls -alF";
     la = "ls -A";
     l = "ls -CF";
+    lal = "ls -ACF";
 
     n = "nvim";
 
