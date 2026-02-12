@@ -1,5 +1,5 @@
 let
-  user = "nixtest";
+  user = "kometa13";
 in
 { config, pkgs, ... }:
 {
