@@ -7,10 +7,7 @@
 {
   home.file = {
     # TODO: Write wezterm config
-    ".config/wezterm" = {
-      source = ./files/.config/wezterm;
-      recursive = true;
-    };
+    ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink ./files/.config/wezterm;
   };
 
   home.sessionVariables = {
