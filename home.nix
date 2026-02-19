@@ -1,16 +1,5 @@
-let
-  user = "kometa13";
-in
 { config, pkgs, ... }:
 {
-  home = {
-    username = user;
-    homeDirectory = "/home/" + user;
-  };
-
-  # Check hm release notes before changing
-  home.stateVersion = "25.11";
-
   home.file = {
     # TODO: Write wezterm config
     ".config/wezterm" = {
