@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   enable = true;
 
@@ -30,30 +35,15 @@
   plugins = [
     {
       name = "zsh-completions";
-      src = pkgs.fetchFromGitHub {
-        owner = "zsh-users";
-        repo = "zsh-completions";
-        rev = "989d0445450b8e79b3cde2da3b7f4bb54934354c";
-        sha256 = "0v1djgrqfn01b40xfr1c0i9h1aca8l32m8ns0dsxqhvjyzy0m0f4";
-      };
+      src = inputs.zsh-completions;
     }
     {
       name = "fzf-tab";
-      src = pkgs.fetchFromGitHub {
-        owner = "Aloxaf";
-        repo = "fzf-tab";
-        rev = "747c15de85a38748b28c29ac65616137dbb4c8b6";
-        sha256 = "0y3l8cinmy7k6jc6qmpnwp5h1m0fix2x2vn8ifmadji3d6klbaw1";
-      };
+      src = inputs.fzf-tab;
     }
     {
       name = "zsh-vi-mode";
-      src = pkgs.fetchFromGitHub {
-        owner = "jeffreytse";
-        repo = "zsh-vi-mode";
-        rev = "08bd1c04520418faee2b9d1afbc410ee1a59a8f1";
-        sha256 = "0kkm91a37yxbgxcbzg8fcr8pn380myg7zf913wwfnm2mbh4lgmjr";
-      };
+      src = inputs.zsh-vi-mode;
     }
   ];
 

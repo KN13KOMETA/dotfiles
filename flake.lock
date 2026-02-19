@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fzf-tab": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770118187,
+        "narHash": "sha256-gatFp2kjyqaqi8hu0UWPDtQAy+X2VmyYNPP4aiNDdHg=",
+        "owner": "Aloxaf",
+        "repo": "fzf-tab",
+        "rev": "747c15de85a38748b28c29ac65616137dbb4c8b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aloxaf",
+        "repo": "fzf-tab",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,9 +54,11 @@
     },
     "root": {
       "inputs": {
+        "fzf-tab": "fzf-tab",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "zsh-completions": "zsh-completions"
+        "zsh-completions": "zsh-completions",
+        "zsh-vi-mode": "zsh-vi-mode"
       }
     },
     "zsh-completions": {
@@ -56,6 +74,22 @@
       "original": {
         "owner": "zsh-users",
         "repo": "zsh-completions",
+        "type": "github"
+      }
+    },
+    "zsh-vi-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768353452,
+        "narHash": "sha256-WdZHCVxVVOs4HyG5f56vAA17UWYOvb9Yf6v7M1RIdU4=",
+        "owner": "jeffreytse",
+        "repo": "zsh-vi-mode",
+        "rev": "08bd1c04520418faee2b9d1afbc410ee1a59a8f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jeffreytse",
+        "repo": "zsh-vi-mode",
         "type": "github"
       }
     }

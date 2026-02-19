@@ -14,6 +14,14 @@
       url = "github:zsh-users/zsh-completions";
       flake = false;
     };
+    fzf-tab = {
+      url = "github:Aloxaf/fzf-tab";
+      flake = false;
+    };
+    zsh-vi-mode = {
+      url = "github:jeffreytse/zsh-vi-mode";
+      flake = false;
+    };
   };
 
   outputs =
@@ -42,7 +50,7 @@
             ./home.nix
           ];
 
-          extraSpecialArgs = { };
+          extraSpecialArgs = { inherit inputs; };
         };
       };
     };

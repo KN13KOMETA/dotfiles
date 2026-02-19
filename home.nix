@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   home.file = {
     # TODO: Write wezterm config
@@ -73,7 +78,7 @@
   programs.home-manager.enable = true;
 
   # SHELL BEGIN
-  programs.zsh = import ./programs/zsh { inherit config pkgs; };
+  programs.zsh = import ./programs/zsh { inherit config pkgs inputs; };
 
   # TODO: Different palette support
   # TODO: Write exit codes
