@@ -6,8 +6,8 @@
 }:
 {
   imports = [
-    ./programs/zsh
-    ./programs/fastfetch
+    ./modules/programs/zsh
+    ./modules/programs/fastfetch
   ];
 
   home.file = {
