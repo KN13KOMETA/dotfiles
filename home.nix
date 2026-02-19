@@ -5,6 +5,11 @@
   ...
 }:
 {
+  imports = [
+    ./programs/zsh
+    ./programs/fastfetch
+  ];
+
   home.file = {
     # TODO: Write wezterm config
     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink ./files/.config/wezterm;
@@ -77,7 +82,6 @@
   programs.home-manager.enable = true;
 
   # SHELL BEGIN
-  programs.zsh = import ./programs/zsh { inherit config pkgs inputs; };
 
   # TODO: Different palette support
   # TODO: Write exit codes
@@ -100,6 +104,4 @@
   # SHELL END
 
   # TODO: Take a look at zellij, ghostty and micro
-
-  programs.fastfetch = import ./programs/fastfetch { inherit config pkgs; };
 }
