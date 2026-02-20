@@ -36,14 +36,9 @@
         main = "kometa13";
       };
       pkgs = inputs.nixpkgs.legacyPackages.${system};
-      nvfConfig = {
-        config.vim = {
-          theme.enable = true;
-        };
-      };
       konvim = inputs.nvf.lib.neovimConfiguration {
         inherit pkgs;
-        modules = [ nvfConfig ];
+        modules = [ ./modules/konvim ];
       };
     in
     {
