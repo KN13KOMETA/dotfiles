@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   imports = [
     ./modules/programs/zsh
