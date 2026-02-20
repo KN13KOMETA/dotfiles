@@ -45,6 +45,7 @@
       echo "KOMETA is here"
       echo ""
       echo "If completions is not working run \"rm -f ~/.zcompdump; compinit\""
+      echo "If fonts not working run \"fc-cache -f\""
     '')
 
     nix-prefetch-git
