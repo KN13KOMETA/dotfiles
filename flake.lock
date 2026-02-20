@@ -157,6 +157,8 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nvf": "nvf",
+        "vim-runtime-spell-en": "vim-runtime-spell-en",
+        "vim-runtime-spell-ru": "vim-runtime-spell-ru",
         "zsh-completions": "zsh-completions",
         "zsh-vi-mode": "zsh-vi-mode"
       }
@@ -174,6 +176,30 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "vim-runtime-spell-en": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-D7PU4+gCrrshtSQTg3WGzk0UaD9mzpb1EdjW5/O13nM=",
+        "type": "file",
+        "url": "https://ftp.nluug.nl/vim/runtime/spell/en.utf-8.spl"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ftp.nluug.nl/vim/runtime/spell/en.utf-8.spl"
+      }
+    },
+    "vim-runtime-spell-ru": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-+qR5FsmYK/332YyxfyjqQ6zHaygCoTtM1p2Okza4YLY=",
+        "type": "file",
+        "url": "https://ftp.nluug.nl/vim/runtime/spell/ru.utf-8.spl"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://ftp.nluug.nl/vim/runtime/spell/ru.utf-8.spl"
       }
     },
     "zsh-completions": {

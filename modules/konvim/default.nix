@@ -1,5 +1,16 @@
+{ inputs, runtime-path, ... }:
 {
   config.vim = {
+    additionalRuntimePaths = [ runtime-path ];
+
+    spellcheck = {
+      enable = true;
+      languages = [
+        "en"
+        "ru"
+      ];
+    };
+
     clipboard = {
       enable = true;
       registers = "unnamedplus";
