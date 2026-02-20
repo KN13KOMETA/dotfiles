@@ -41,13 +41,13 @@
           theme.enable = true;
         };
       };
-      kometaNeovim = inputs.nvf.lib.neovimConfiguration {
+      konvim = inputs.nvf.lib.neovimConfiguration {
         inherit pkgs;
         modules = [ nvfConfig ];
       };
     in
     {
-      packages.${system}.kometaNeovim = kometaNeovim.neovim;
+      packages.${system}.konvim = konvim.neovim;
 
       homeConfigurations = {
         ${user.main} = inputs.home-manager.lib.homeManagerConfiguration {
@@ -62,7 +62,7 @@
                 stateVersion = "25.11";
               };
             }
-            { home.packages = [ kometaNeovim.neovim ]; }
+            { home.packages = [ konvim.neovim ]; }
             ./home.nix
           ];
 
