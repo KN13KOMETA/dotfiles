@@ -5,6 +5,7 @@
     ./modules/programs/oh-my-posh
     ./modules/programs/fastfetch
   ];
+  # TODO: themes
 
   home.file = {
     # TODO: Write wezterm config
