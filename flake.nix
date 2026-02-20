@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf.url = "github:notashelf/nvf";
 
     zsh-completions = {
       url = "github:zsh-users/zsh-completions";
@@ -32,8 +33,19 @@
         main = "kometa13";
       };
       pkgs = inputs.nixpkgs.legacyPackages.${system};
+      nvfConfig = {
+        config.vim = {
+          theme.enable = true;
+        };
+      };
+      kometaNeovim = inputs.nvf.lib.neovimConfiguration {
+        inherit pkgs;
+        modules = [ nvfConfig ];
+      };
     in
     {
+      packages.${system}.kometaNeovim = kometaNeovim.neovim;
+
       homeConfigurations = {
         ${user.main} = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
