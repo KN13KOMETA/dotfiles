@@ -10,7 +10,7 @@ config.text_background_opacity = 0.75
 
 -- FONT
 -- https://wezterm.org/config/fonts.html#font-related-configuration
-config.font = wezterm.font("0xProto Nerd Font Mono")
+config.font = wezterm.font("IntoneMono NF")
 -- https://wezterm.org/config/fonts.html#font-related-options
 config.font_size = 11.2
 
