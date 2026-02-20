@@ -56,7 +56,7 @@
     neovim
 
     # Terminal
-    wezterm
+    # wezterm
 
     # Languages
     nodejs
