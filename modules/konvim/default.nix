@@ -3,6 +3,13 @@
   config.vim = {
     additionalRuntimePaths = [ runtime-path ];
 
+    luaConfigRC = {
+      # We manage spellfiles with flakes instead
+      disable-spellfile-plugin = ''
+        vim.g.loaded_spellfile_plugin = 1
+      '';
+    };
+
     spellcheck = {
       enable = true;
       languages = [
