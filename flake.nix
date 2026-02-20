@@ -9,7 +9,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zsh-completions = {
       url = "github:zsh-users/zsh-completions";
@@ -59,6 +62,7 @@
                 stateVersion = "25.11";
               };
             }
+            { home.packages = [ kometaNeovim.neovim ]; }
             ./home.nix
           ];
 
