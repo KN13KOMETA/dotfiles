@@ -79,6 +79,7 @@
   programs.home-manager.enable = true;
 
   # SHELL BEGIN
+  # TODO: Make an option for shell
 
   programs.zoxide = {
     enable = true;
