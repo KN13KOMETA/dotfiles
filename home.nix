@@ -2,6 +2,7 @@
 {
   imports = [
     ./modules/programs/zsh
+    ./modules/programs/oh-my-posh
     ./modules/programs/fastfetch
   ];
 
@@ -78,14 +79,6 @@
   programs.home-manager.enable = true;
 
   # SHELL BEGIN
-
-  # TODO: Different palette support
-  # TODO: Write exit codes
-  programs.oh-my-posh = {
-    enable = true;
-    enableZshIntegration = true;
-    configFile = ./dotfiles/oh-my-posh/kometa.omp.toml;
-  };
 
   programs.zoxide = {
     enable = true;
