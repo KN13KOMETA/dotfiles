@@ -3,7 +3,9 @@ local wezterm = require("wezterm")
 local M = {}
 
 M.apply_to_config = function(config, opts)
-  if type(opts) ~= "table" then opts = {} end
+  if type(opts) ~= "table" then
+    opts = {}
+  end
 
   if type(opts.key) ~= "string" then
     opts.key = "h"
@@ -19,14 +21,13 @@ M.apply_to_config = function(config, opts)
     config.keys = {}
   end
 
-
   table.insert(config.keys, {
     key = opts.key,
     mods = opts.mods,
-    action = wezterm.action.PromptInputLine {
+    action = wezterm.action.PromptInputLine({
       description = opts.text,
-      action = wezterm.action_callback(function() end)
-    }
+      action = wezterm.action_callback(function() end),
+    }),
   })
 end
 

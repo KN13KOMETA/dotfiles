@@ -9,7 +9,9 @@ end
 M.abc_pairs = function(t, sort_f)
   local a = {}
 
-  for n in pairs(t) do table.insert(a, n) end
+  for n in pairs(t) do
+    table.insert(a, n)
+  end
 
   table.sort(a, sort_f)
   local i = 0
@@ -46,7 +48,9 @@ end
 
 M.table_length = function(t)
   local l = 0
-  for _ in ipairs(t) do l = l + 1 end
+  for _ in ipairs(t) do
+    l = l + 1
+  end
   return l
 end
 
@@ -60,7 +64,9 @@ M.table_pretty = function(tbl)
 
       parts_count = parts_count + 1
 
-      if type(key) ~= "string" then key = tostring(key) end
+      if type(key) ~= "string" then
+        key = tostring(key)
+      end
 
       if type(value) == "table" then
         isTable = true
@@ -93,7 +99,7 @@ end
 M.key_simplifier = function(key)
   local simple_key = {
     key = key.key,
-    action = key.action
+    action = key.action,
   }
 
   if type(simple_key.action) == "table" then

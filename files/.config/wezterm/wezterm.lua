@@ -29,7 +29,7 @@ end)
 local plugin = {
   keybind = require("plugins/keybind/plugin"),
   tabbar = require("plugins/tabbar/plugin"),
-  helpscreen = require("plugins/helpscreen/plugin")
+  helpscreen = require("plugins/helpscreen/plugin"),
 }
 
 -- TODO: panes and copy mode
@@ -69,13 +69,13 @@ do
       { Text = "\n> KEYS\n" },
       { Text = table.concat(keys_help, "\n") },
       "ResetAttributes",
-      { Text = "\n\nPress enter to close..." }
-    })
+      { Text = "\n\nPress enter to close..." },
+    }),
   })
 end
 
 wezterm.on("window-resized", function(window, pane)
-  wezterm.reload_configuration();
+  wezterm.reload_configuration()
 end)
 
 return config

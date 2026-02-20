@@ -66,8 +66,8 @@ wezterm.on("update-status", function(window, pane)
     }
 
     do
-      local battery_info = wezterm.battery_info();
-      if (battery_info[1]) then
+      local battery_info = wezterm.battery_info()
+      if battery_info[1] then
         battery.charge = battery_info[1].state_of_charge
       end
     end
