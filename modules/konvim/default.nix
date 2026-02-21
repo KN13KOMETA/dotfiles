@@ -14,6 +14,12 @@
       ];
     };
 
+    # TODO: theme
+    theme = {
+      enable = true;
+      transparent = true;
+    };
+
     clipboard = {
       enable = true;
       registers = "unnamedplus";
