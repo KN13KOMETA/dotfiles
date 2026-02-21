@@ -25,6 +25,8 @@
       registers = "unnamedplus";
     };
 
+    utility.snacks-nvim = import ./snacks-nvim { inherit inputs; };
+
     options = {
       # TODO: sort this
       cursorlineopt = "number";
